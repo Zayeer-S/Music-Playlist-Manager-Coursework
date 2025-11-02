@@ -1,0 +1,12 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running pre-commit checks..."
+
+dotnet format
+
+dotnet test --no-build --verbosity quiet
+
+if [ $? -ne 0 ]; then
+  echo "Tests failed. Commit aborted."
+  exit 1
