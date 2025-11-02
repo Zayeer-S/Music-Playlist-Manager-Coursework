@@ -10,3 +10,4 @@ dotnet test --no-build --verbosity quiet
 if [ $? -ne 0 ]; then
   echo "Tests failed. Commit aborted."
   exit 1
+fi
