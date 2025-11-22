@@ -275,9 +275,20 @@ public class LinkedList
         }
 
         head = null;
+        Node? tail = null;
         foreach (Song song in songs)
         {
-            Add(song);
+            Node newNode = new(song);
+            if (head == null)
+            {
+                head = newNode;
+                tail = newNode;
+            }
+            else
+            {
+                tail!.next = newNode;
+                tail = newNode;
+            }
         }
 
         Console.WriteLine("=== Playlist Shuffled ===");
